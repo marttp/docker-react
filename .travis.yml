@@ -6,4 +6,4 @@ before_install:
   - docker build -t marttp/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run marttp/docker-react npm run test -- --coverage
+  - docker run -e CI=true marttp/docker-react npm run test
