@@ -1,0 +1,17 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
+
+
+# -v /app/node_modules = Put a bookmark on the node_modules folder
+# -v $(pwd):/app = Map the pwd into the '/app' folder
+# Linux only!!!
+#docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image_id>

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - /app/node_modules
+      - .:/app
+  #When add a new services => docker-compose up --build
+  # Test below is not the good solutions. Just add for sample concept
+  
+  # tests:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   volumes: 
+  #     - /app/node_modules
+  #     - .:/app
+  #   command: ["npm", "run", "test"]
+
+# docker ps for check container and get ID to live update test
+# docker exec -it <container ID> npm run test
